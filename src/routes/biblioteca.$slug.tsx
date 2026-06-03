@@ -64,7 +64,7 @@ function PostPage() {
         </p>
         <div className="divider-rune mb-12"><span className="font-display text-xl">ᛟ</span></div>
         <div className="space-y-6 font-serif text-lg text-foreground/90 leading-relaxed">
-          {post.body.map((p, i) => <p key={i}>{p}</p>)}
+          {post.body.map((p: string, i: number) => <p key={i}>{p}</p>)}
         </div>
       </article>
       <Newsletter />
