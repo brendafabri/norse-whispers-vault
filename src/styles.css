@@ -182,3 +182,22 @@
   animation: float-rune linear infinite;
   text-shadow: 0 0 8px oklch(0.68 0.09 75 / 0.6);
 }
+
+/* Parchment background */
+.parchment {
+  background:
+    radial-gradient(ellipse at top, oklch(0.18 0.02 80 / 0.6), transparent 70%),
+    radial-gradient(ellipse at bottom, oklch(0.16 0.02 60 / 0.6), transparent 70%),
+    linear-gradient(135deg, oklch(0.14 0.015 70) 0%, oklch(0.11 0.012 80) 50%, oklch(0.13 0.015 60) 100%);
+  position: relative;
+}
+.parchment::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 30%, oklch(0.68 0.09 75 / 0.08) 0%, transparent 30%),
+    radial-gradient(circle at 80% 70%, oklch(0.68 0.09 75 / 0.06) 0%, transparent 30%);
+  pointer-events: none;
+  border-radius: inherit;
+}
