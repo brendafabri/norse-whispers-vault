@@ -4,6 +4,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { LeadMagnet } from "@/components/LeadMagnet";
 import { Newsletter } from "@/components/Newsletter";
 import { RuneParticles } from "@/components/RuneParticles";
+import { RuneOfDay } from "@/components/RuneOfDay";
 import { POSTS } from "@/data/blog";
 import heroLibrary from "@/assets/hero-library.jpg";
 import runesImg from "@/assets/runes.jpg";
@@ -108,6 +109,11 @@ function Home() {
           Donde se conserva el conocimiento ancestral del Norte. Aquí las runas hablan,
           los sueños se descifran y las sombras se vuelven aliadas. Bienvenido, buscador.
         </p>
+      </section>
+
+      {/* RUNA DEL DÍA */}
+      <section className="py-24 container mx-auto px-6">
+        <RuneOfDay />
       </section>
 
       <LeadMagnet />
