@@ -14,7 +14,9 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ProductosRouteImport } from './routes/productos'
 import { Route as OraculoRouteImport } from './routes/oraculo'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as RunasIndexRouteImport } from './routes/runas.index'
 import { Route as BibliotecaIndexRouteImport } from './routes/biblioteca.index'
+import { Route as RunasSlugRouteImport } from './routes/runas.$slug'
 import { Route as BibliotecaSlugRouteImport } from './routes/biblioteca.$slug'
 
 const SobreRoute = SobreRouteImport.update({
@@ -42,9 +44,19 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RunasIndexRoute = RunasIndexRouteImport.update({
+  id: '/runas/',
+  path: '/runas/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BibliotecaIndexRoute = BibliotecaIndexRouteImport.update({
   id: '/biblioteca/',
   path: '/biblioteca/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RunasSlugRoute = RunasSlugRouteImport.update({
+  id: '/runas/$slug',
+  path: '/runas/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BibliotecaSlugRoute = BibliotecaSlugRouteImport.update({
@@ -60,7 +72,9 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre': typeof SobreRoute
   '/biblioteca/$slug': typeof BibliotecaSlugRoute
+  '/runas/$slug': typeof RunasSlugRoute
   '/biblioteca/': typeof BibliotecaIndexRoute
+  '/runas/': typeof RunasIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -69,7 +83,9 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre': typeof SobreRoute
   '/biblioteca/$slug': typeof BibliotecaSlugRoute
+  '/runas/$slug': typeof RunasSlugRoute
   '/biblioteca': typeof BibliotecaIndexRoute
+  '/runas': typeof RunasIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -79,7 +95,9 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre': typeof SobreRoute
   '/biblioteca/$slug': typeof BibliotecaSlugRoute
+  '/runas/$slug': typeof RunasSlugRoute
   '/biblioteca/': typeof BibliotecaIndexRoute
+  '/runas/': typeof RunasIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -90,7 +108,9 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/sobre'
     | '/biblioteca/$slug'
+    | '/runas/$slug'
     | '/biblioteca/'
+    | '/runas/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -99,7 +119,9 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/sobre'
     | '/biblioteca/$slug'
+    | '/runas/$slug'
     | '/biblioteca'
+    | '/runas'
   id:
     | '__root__'
     | '/'
@@ -108,7 +130,9 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/sobre'
     | '/biblioteca/$slug'
+    | '/runas/$slug'
     | '/biblioteca/'
+    | '/runas/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -118,7 +142,9 @@ export interface RootRouteChildren {
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SobreRoute: typeof SobreRoute
   BibliotecaSlugRoute: typeof BibliotecaSlugRoute
+  RunasSlugRoute: typeof RunasSlugRoute
   BibliotecaIndexRoute: typeof BibliotecaIndexRoute
+  RunasIndexRoute: typeof RunasIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -158,11 +184,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/runas/': {
+      id: '/runas/'
+      path: '/runas'
+      fullPath: '/runas/'
+      preLoaderRoute: typeof RunasIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/biblioteca/': {
       id: '/biblioteca/'
       path: '/biblioteca'
       fullPath: '/biblioteca/'
       preLoaderRoute: typeof BibliotecaIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/runas/$slug': {
+      id: '/runas/$slug'
+      path: '/runas/$slug'
+      fullPath: '/runas/$slug'
+      preLoaderRoute: typeof RunasSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/biblioteca/$slug': {
@@ -182,7 +222,9 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   SobreRoute: SobreRoute,
   BibliotecaSlugRoute: BibliotecaSlugRoute,
+  RunasSlugRoute: RunasSlugRoute,
   BibliotecaIndexRoute: BibliotecaIndexRoute,
+  RunasIndexRoute: RunasIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
