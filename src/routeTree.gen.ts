@@ -9,38 +9,148 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SobreRouteImport } from './routes/sobre'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as ProductosRouteImport } from './routes/productos'
+import { Route as OraculoRouteImport } from './routes/oraculo'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BibliotecaIndexRouteImport } from './routes/biblioteca.index'
+import { Route as BibliotecaSlugRouteImport } from './routes/biblioteca.$slug'
 
+const SobreRoute = SobreRouteImport.update({
+  id: '/sobre',
+  path: '/sobre',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductosRoute = ProductosRouteImport.update({
+  id: '/productos',
+  path: '/productos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OraculoRoute = OraculoRouteImport.update({
+  id: '/oraculo',
+  path: '/oraculo',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BibliotecaIndexRoute = BibliotecaIndexRouteImport.update({
+  id: '/biblioteca/',
+  path: '/biblioteca/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BibliotecaSlugRoute = BibliotecaSlugRouteImport.update({
+  id: '/biblioteca/$slug',
+  path: '/biblioteca/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/oraculo': typeof OraculoRoute
+  '/productos': typeof ProductosRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/sobre': typeof SobreRoute
+  '/biblioteca/$slug': typeof BibliotecaSlugRoute
+  '/biblioteca/': typeof BibliotecaIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/oraculo': typeof OraculoRoute
+  '/productos': typeof ProductosRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/sobre': typeof SobreRoute
+  '/biblioteca/$slug': typeof BibliotecaSlugRoute
+  '/biblioteca': typeof BibliotecaIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/oraculo': typeof OraculoRoute
+  '/productos': typeof ProductosRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/sobre': typeof SobreRoute
+  '/biblioteca/$slug': typeof BibliotecaSlugRoute
+  '/biblioteca/': typeof BibliotecaIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/oraculo'
+    | '/productos'
+    | '/sitemap.xml'
+    | '/sobre'
+    | '/biblioteca/$slug'
+    | '/biblioteca/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/oraculo'
+    | '/productos'
+    | '/sitemap.xml'
+    | '/sobre'
+    | '/biblioteca/$slug'
+    | '/biblioteca'
+  id:
+    | '__root__'
+    | '/'
+    | '/oraculo'
+    | '/productos'
+    | '/sitemap.xml'
+    | '/sobre'
+    | '/biblioteca/$slug'
+    | '/biblioteca/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  OraculoRoute: typeof OraculoRoute
+  ProductosRoute: typeof ProductosRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  SobreRoute: typeof SobreRoute
+  BibliotecaSlugRoute: typeof BibliotecaSlugRoute
+  BibliotecaIndexRoute: typeof BibliotecaIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sobre': {
+      id: '/sobre'
+      path: '/sobre'
+      fullPath: '/sobre'
+      preLoaderRoute: typeof SobreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/productos': {
+      id: '/productos'
+      path: '/productos'
+      fullPath: '/productos'
+      preLoaderRoute: typeof ProductosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/oraculo': {
+      id: '/oraculo'
+      path: '/oraculo'
+      fullPath: '/oraculo'
+      preLoaderRoute: typeof OraculoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,22 +158,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/biblioteca/': {
+      id: '/biblioteca/'
+      path: '/biblioteca'
+      fullPath: '/biblioteca/'
+      preLoaderRoute: typeof BibliotecaIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/biblioteca/$slug': {
+      id: '/biblioteca/$slug'
+      path: '/biblioteca/$slug'
+      fullPath: '/biblioteca/$slug'
+      preLoaderRoute: typeof BibliotecaSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  OraculoRoute: OraculoRoute,
+  ProductosRoute: ProductosRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
+  SobreRoute: SobreRoute,
+  BibliotecaSlugRoute: BibliotecaSlugRoute,
+  BibliotecaIndexRoute: BibliotecaIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
