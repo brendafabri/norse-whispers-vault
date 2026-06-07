@@ -27,6 +27,7 @@ const items = [
     img: grimoire,
     price: "39 €",
     cta: "VER EL LIBRO",
+    href: "https://gumroad.com/l/placeholder-libro",
   },
   {
     title: "Lecturas de Runas",
@@ -34,6 +35,7 @@ const items = [
     img: runesImg,
     price: "Desde 45 €",
     cta: "RESERVAR LECTURA",
+    href: "https://calendly.com/placeholder",
   },
   {
     title: "Herramientas Místicas",
@@ -41,6 +43,7 @@ const items = [
     img: forest,
     price: "Desde 28 €",
     cta: "EXPLORAR COLECCIÓN",
+    href: "https://gumroad.com/placeholder-tienda",
   },
 ];
 
@@ -73,9 +76,14 @@ function Productos() {
               <h2 className="font-display text-3xl md:text-4xl mb-6">{p.title}</h2>
               <p className="font-serif text-lg text-muted-foreground leading-relaxed mb-6">{p.desc}</p>
               <p className="font-display text-2xl text-gold mb-8 tracking-wider">{p.price}</p>
-              <button className="bg-gradient-to-r from-[oklch(0.72_0.10_75)] to-[oklch(0.55_0.08_70)] text-primary-foreground font-display tracking-[0.2em] text-sm px-8 py-4 rounded-sm hover:opacity-95 transition">
+              <a
+                href={p.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-gradient-to-r from-[oklch(0.72_0.10_75)] to-[oklch(0.55_0.08_70)] text-primary-foreground font-display tracking-[0.2em] text-sm px-8 py-4 rounded-sm hover:opacity-95 transition"
+              >
                 {p.cta}
-              </button>
+              </a>
             </div>
           </article>
         ))}
