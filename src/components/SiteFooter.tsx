@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { SubscribeForm } from "./SubscribeForm";
 
 export function SiteFooter() {
   return (
@@ -25,9 +26,10 @@ export function SiteFooter() {
         </div>
         <div>
           <h4 className="font-display text-sm tracking-widest text-gold mb-4">CÍRCULO</h4>
-          <p className="font-serif text-sm text-muted-foreground">
+          <p className="font-serif text-sm text-muted-foreground mb-4">
             Únete a los buscadores y recibe sabiduría ancestral en tu bandeja de entrada.
           </p>
+          <SubscribeForm source="footer" />
         </div>
       </div>
       <div className="border-t border-border/60 py-6 text-center font-serif text-xs text-muted-foreground tracking-wide">
