@@ -5,6 +5,7 @@ import { LeadMagnet } from "@/components/LeadMagnet";
 import { Newsletter } from "@/components/Newsletter";
 import { RuneParticles } from "@/components/RuneParticles";
 import { RuneOfDay } from "@/components/RuneOfDay";
+import { Testimonials } from "@/components/Testimonials";
 import { POSTS } from "@/data/blog";
 import heroLibrary from "@/assets/hero-library.jpg";
 import runesImg from "@/assets/runes.jpg";
