@@ -64,7 +64,21 @@ function PostPage() {
         </p>
         <div className="divider-rune mb-12"><span className="font-display text-xl">ᛟ</span></div>
         <div className="space-y-6 font-serif text-lg text-foreground/90 leading-relaxed">
-          {post.body.map((p: string, i: number) => <p key={i}>{p}</p>)}
+          {post.body.map((p: string, i: number) => {
+            if (p.startsWith("## ")) {
+              return <h2 key={i} className="font-display text-2xl md:text-3xl text-gold mt-12 mb-4 leading-tight">{p.slice(3)}</h2>;
+            }
+            if (p.startsWith("### ")) {
+              return <h3 key={i} className="font-display text-xl md:text-2xl text-foreground mt-8 mb-3">{p.slice(4)}</h3>;
+            }
+            if (p.startsWith("--- ")) {
+              return <div key={i} className="divider-rune my-10"><span className="font-display text-xl">{p.slice(4)}</span></div>;
+            }
+            if (p.startsWith("> ")) {
+              return <blockquote key={i} className="border-l-2 border-gold/60 pl-6 italic text-foreground/80 my-6">{p.slice(2)}</blockquote>;
+            }
+            return <p key={i}>{p}</p>;
+          })}
         </div>
       </article>
       <Newsletter />
