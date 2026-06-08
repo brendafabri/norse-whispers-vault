@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Newsletter } from "@/components/Newsletter";
+import { Testimonials } from "@/components/Testimonials";
 import grimoire from "@/assets/grimoire.jpg";
 import runesImg from "@/assets/runes.jpg";
 import forest from "@/assets/forest.jpg";
@@ -88,6 +89,8 @@ function Productos() {
           </article>
         ))}
       </section>
+
+      <Testimonials />
 
       <Newsletter />
       <SiteFooter />
