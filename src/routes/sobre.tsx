@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Newsletter } from "@/components/Newsletter";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import forest from "@/assets/forest.jpg";
 
 export const Route = createFileRoute("/sobre")({
@@ -54,6 +55,40 @@ function Sobre() {
 
         <div className="divider-rune my-16"><span className="font-display text-2xl">ᛟ</span></div>
 
+        <div className="bg-card/40 border border-border rounded-sm p-8 md:p-12">
+          <div className="flex flex-col items-center text-center mb-8">
+            <Avatar className="w-24 h-24 mb-6 border-2 border-gold/60">
+              <AvatarFallback className="bg-forest text-gold text-3xl font-display">
+                MA
+              </AvatarFallback>
+            </Avatar>
+            <h3 className="font-display text-2xl md:text-3xl mb-2">Mara Aelric</h3>
+            <p className="font-serif text-sm text-muted-foreground">Fundadora · Guardian del Norte</p>
+          </div>
+
+          <div className="space-y-6 font-serif text-lg text-foreground/90 leading-relaxed max-w-2xl mx-auto">
+            <p>
+              Soy Mara Aelric, y no llegué a las runas por casualidad. Durante años busqué respuestas en lugares equivocados hasta que, en una noche de invierno particularmente larga, un sueño me llevó a las páginas de un grimorio olvidado. Desperté sabiendo que mi camino no era otro que escuchar lo que los antiguos guardianes del Norte habían dejado escrito.
+            </p>
+            <p>
+              Eso fue hace más de doce años. Desde entonces he estudiado con runemasters en Escandinavia, he practicado galdr y he aprendido a leer los símbolos no como letras, sino como puertas. Cada runa es un territorio vivo, y mi trabajo es servir de guía a quienes se atreven a cruzar esos umbrales.
+            </p>
+            <p>
+              Mystical Alchemy nació porque vi demasiados buscadores perdidos en información superficial y promesas vacías. Quería crear un santuario donde el conocimiento ancestral se respetara en su profundidad, pero se ofreciera con la claridad que el mundo moderno necesita. Aquí no vendemos magia: compartimos llaves.
+            </p>
+            <p>
+              Mi compromiso es simple: cada palabra que escribo, cada lectura que ofrezco y cada pieza que bendigo lleva la intención de quien entiende que el verdadero poder no se compra, se despierta. Si estás leyendo esto, quizás las runas ya te han elegido.
+            </p>
+          </div>
+        </div>
+
+        <div className="divider-rune my-16"><span className="font-display text-2xl">ᛗ</span></div>
+
+        <div className="text-center mb-10">
+          <p className="font-serif text-muted-foreground max-w-xl mx-auto">
+            Estos son los pilares que doce años de camino me han enseñado a defender:
+          </p>
+        </div>
         <div className="grid sm:grid-cols-3 gap-8 text-center">
           {[
             { rune: "ᚱ", title: "Raíces", desc: "Honramos la tradición nórdica con rigor y respeto." },
