@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Newsletter } from "@/components/Newsletter";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import forest from "@/assets/forest.jpg";
 
 export const Route = createFileRoute("/sobre")({
