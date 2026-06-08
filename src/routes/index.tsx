@@ -197,6 +197,7 @@ function Home() {
         </Link>
       </section>
 
+      <Testimonials />
       <Newsletter />
       <SiteFooter />
     </div>
