@@ -77,6 +77,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { title: "Mystical Alchemy — Magia Nórdica, Runas y Sabiduría Ancestral" },
+      { name: "description", content: "Biblioteca arcana de magia nórdica, runas, protección energética e interpretación de sueños. Despierta tu poder interior." },
       { name: "author", content: "Mystical Alchemy" },
       { name: "theme-color", content: "#0D0D0D" },
       { property: "og:type", content: "website" },
