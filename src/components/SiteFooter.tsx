@@ -32,8 +32,13 @@ export function SiteFooter() {
           <SubscribeForm source="footer" />
         </div>
       </div>
-      <div className="border-t border-border/60 py-6 text-center font-serif text-xs text-muted-foreground tracking-wide">
-        © {new Date().getFullYear()} Mystical Alchemy · Forjado en las sombras del Norte
+      <div className="border-t border-border/60 py-6 text-center font-serif text-xs text-muted-foreground tracking-wide space-y-2">
+        <div className="flex flex-wrap items-center justify-center gap-4">
+          <Link to="/privacidad" className="hover:text-gold">Política de Privacidad</Link>
+          <span aria-hidden>·</span>
+          <Link to="/legal" className="hover:text-gold">Aviso Legal</Link>
+        </div>
+        <div>© {new Date().getFullYear()} Mystical Alchemy · Forjado en las sombras del Norte</div>
       </div>
     </footer>
   );
