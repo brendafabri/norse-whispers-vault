@@ -18,6 +18,7 @@ export const Route = createFileRoute("/runas/$slug")({
     const description = rune
       ? `${rune.name}: ${rune.meaning}. Descubre el significado profundo, el mensaje ancestral y el uso espiritual de la runa ${rune.name} del Futhark Antiguo.`
       : "";
+    const url = `https://norse-whispers-vault.lovable.app/runas/${params.slug}`;
     return {
       meta: [
         { title },
@@ -26,9 +27,11 @@ export const Route = createFileRoute("/runas/$slug")({
         { property: "og:title", content: title },
         { property: "og:description", content: description },
         { property: "og:type", content: "article" },
-        { property: "og:url", content: `/runas/${params.slug}` },
+        { property: "og:url", content: url },
+        { name: "twitter:title", content: title },
+        { name: "twitter:description", content: description },
       ],
-      links: [{ rel: "canonical", href: `/runas/${params.slug}` }],
+      links: [{ rel: "canonical", href: url }],
       scripts: rune
         ? [
             {
@@ -40,6 +43,19 @@ export const Route = createFileRoute("/runas/$slug")({
                 description,
                 articleSection: "Runas Nórdicas",
                 inLanguage: "es",
+                author: { "@type": "Organization", name: "Mystical Alchemy" },
+              }),
+            },
+            {
+              type: "application/ld+json",
+              children: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "BreadcrumbList",
+                itemListElement: [
+                  { "@type": "ListItem", position: 1, name: "Inicio", item: "https://norse-whispers-vault.lovable.app/" },
+                  { "@type": "ListItem", position: 2, name: "Runas", item: "https://norse-whispers-vault.lovable.app/runas" },
+                  { "@type": "ListItem", position: 3, name: rune.name, item: url },
+                ],
               }),
             },
           ]

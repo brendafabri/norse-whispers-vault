@@ -13,9 +13,24 @@ export const Route = createFileRoute("/oraculo")({
       { name: "description", content: "Saca una runa diaria, recibe tu mensaje del día y descubre el significado de los números espejo." },
       { property: "og:title", content: "Oráculo Diario — Mystical Alchemy" },
       { property: "og:description", content: "Tu runa del día y el significado de los números repetidos." },
-      { property: "og:url", content: "/oraculo" },
+      { property: "og:url", content: "https://norse-whispers-vault.lovable.app/oraculo" },
+      { name: "twitter:title", content: "Oráculo Diario — Mystical Alchemy" },
+      { name: "twitter:description", content: "Tu runa del día y el significado de los números repetidos." },
     ],
-    links: [{ rel: "canonical", href: "/oraculo" }],
+    links: [{ rel: "canonical", href: "https://norse-whispers-vault.lovable.app/oraculo" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Inicio", item: "https://norse-whispers-vault.lovable.app/" },
+            { "@type": "ListItem", position: 2, name: "Oráculo", item: "https://norse-whispers-vault.lovable.app/oraculo" },
+          ],
+        }),
+      },
+    ],
   }),
   component: Oraculo,
 });

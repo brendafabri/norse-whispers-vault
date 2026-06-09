@@ -12,9 +12,24 @@ export const Route = createFileRoute("/sobre")({
       { name: "description", content: "Preservamos y compartimos conocimientos ancestrales de forma práctica, profunda y accesible para los buscadores modernos." },
       { property: "og:title", content: "Sobre Mystical Alchemy" },
       { property: "og:description", content: "Nuestra misión: preservar la sabiduría ancestral del Norte." },
-      { property: "og:url", content: "/sobre" },
+      { property: "og:url", content: "https://norse-whispers-vault.lovable.app/sobre" },
+      { name: "twitter:title", content: "Sobre Mystical Alchemy" },
+      { name: "twitter:description", content: "Nuestra misión: preservar la sabiduría ancestral del Norte." },
     ],
-    links: [{ rel: "canonical", href: "/sobre" }],
+    links: [{ rel: "canonical", href: "https://norse-whispers-vault.lovable.app/sobre" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Inicio", item: "https://norse-whispers-vault.lovable.app/" },
+            { "@type": "ListItem", position: 2, name: "Sobre", item: "https://norse-whispers-vault.lovable.app/sobre" },
+          ],
+        }),
+      },
+    ],
   }),
   component: Sobre,
 });
