@@ -12,9 +12,24 @@ export const Route = createFileRoute("/biblioteca/")({
       { name: "description", content: "Artículos sobre runas, magia nórdica, sueños, protección energética, brujería, simbolismo y números espejo." },
       { property: "og:title", content: "Biblioteca Arcana — Mystical Alchemy" },
       { property: "og:description", content: "Sabiduría ancestral del Norte en formato digital." },
-      { property: "og:url", content: "/biblioteca" },
+      { property: "og:url", content: "https://norse-whispers-vault.lovable.app/biblioteca" },
+      { name: "twitter:title", content: "Biblioteca Arcana — Mystical Alchemy" },
+      { name: "twitter:description", content: "Sabiduría ancestral del Norte en formato digital." },
     ],
-    links: [{ rel: "canonical", href: "/biblioteca" }],
+    links: [{ rel: "canonical", href: "https://norse-whispers-vault.lovable.app/biblioteca" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Inicio", item: "https://norse-whispers-vault.lovable.app/" },
+            { "@type": "ListItem", position: 2, name: "Biblioteca", item: "https://norse-whispers-vault.lovable.app/biblioteca" },
+          ],
+        }),
+      },
+    ],
   }),
   component: Biblioteca,
 });

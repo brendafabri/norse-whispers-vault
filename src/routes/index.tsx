@@ -20,9 +20,23 @@ export const Route = createFileRoute("/")({
       { name: "keywords", content: "significado de runas, lectura de runas, runas nórdicas, magia nórdica, protección energética, interpretación de sueños, bindrunes, Odín y las runas, números espejo" },
       { property: "og:title", content: "Mystical Alchemy — Sabiduría Ancestral del Norte" },
       { property: "og:description", content: "Biblioteca arcana de magia nórdica para buscadores modernos." },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: "https://norse-whispers-vault.lovable.app/" },
+      { name: "twitter:title", content: "Mystical Alchemy — Sabiduría Ancestral del Norte" },
+      { name: "twitter:description", content: "Biblioteca arcana de magia nórdica para buscadores modernos." },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: "https://norse-whispers-vault.lovable.app/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Inicio", item: "https://norse-whispers-vault.lovable.app/" },
+          ],
+        }),
+      },
+    ],
   }),
   component: Home,
 });

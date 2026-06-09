@@ -13,9 +13,24 @@ export const Route = createFileRoute("/runas/")({
       { name: "keywords", content: "runas, significado de runas, runas nórdicas, Futhark antiguo, runa del día, lectura de runas" },
       { property: "og:title", content: "Las 24 Runas del Futhark Antiguo" },
       { property: "og:description", content: "Guía completa de las runas nórdicas y su significado." },
-      { property: "og:url", content: "/runas" },
+      { property: "og:url", content: "https://norse-whispers-vault.lovable.app/runas" },
+      { name: "twitter:title", content: "Las 24 Runas del Futhark Antiguo" },
+      { name: "twitter:description", content: "Guía completa de las runas nórdicas y su significado." },
     ],
-    links: [{ rel: "canonical", href: "/runas" }],
+    links: [{ rel: "canonical", href: "https://norse-whispers-vault.lovable.app/runas" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Inicio", item: "https://norse-whispers-vault.lovable.app/" },
+            { "@type": "ListItem", position: 2, name: "Runas", item: "https://norse-whispers-vault.lovable.app/runas" },
+          ],
+        }),
+      },
+    ],
   }),
   component: RunasIndex,
 });

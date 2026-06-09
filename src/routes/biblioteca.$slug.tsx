@@ -12,27 +12,49 @@ export const Route = createFileRoute("/biblioteca/$slug")({
   },
   head: ({ loaderData }) => {
     const post = loaderData?.post;
+    const url = `https://norse-whispers-vault.lovable.app/biblioteca/${post?.slug ?? ""}`;
     return {
       meta: [
         { title: post ? `${post.title} — Biblioteca Arcana` : "Manuscrito" },
         { name: "description", content: post?.excerpt ?? "" },
-        { property: "og:title", content: post?.title ?? "" },
+        { property: "og:title", content: post ? `${post.title} — Biblioteca Arcana` : "Manuscrito" },
         { property: "og:description", content: post?.excerpt ?? "" },
         { property: "og:type", content: "article" },
-        { property: "og:url", content: `/biblioteca/${post?.slug ?? ""}` },
+        { property: "og:url", content: url },
+        { name: "twitter:title", content: post ? `${post.title} — Biblioteca Arcana` : "Manuscrito" },
+        { name: "twitter:description", content: post?.excerpt ?? "" },
       ],
-      links: [{ rel: "canonical", href: `/biblioteca/${post?.slug ?? ""}` }],
-      scripts: post ? [{
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Article",
-          headline: post.title,
-          datePublished: post.date,
-          articleSection: post.category,
-          description: post.excerpt,
-        }),
-      }] : [],
+      links: [{ rel: "canonical", href: url }],
+      scripts: post ? [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: post.title,
+            datePublished: post.date,
+            dateModified: post.date,
+            articleSection: post.category,
+            description: post.excerpt,
+            inLanguage: "es",
+            author: { "@type": "Organization", name: "Mystical Alchemy" },
+            publisher: { "@type": "Organization", name: "Mystical Alchemy" },
+            mainEntityOfPage: { "@type": "WebPage", "@id": url },
+          }),
+        },
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Inicio", item: "https://norse-whispers-vault.lovable.app/" },
+              { "@type": "ListItem", position: 2, name: "Biblioteca", item: "https://norse-whispers-vault.lovable.app/biblioteca" },
+              { "@type": "ListItem", position: 3, name: post.title, item: url },
+            ],
+          }),
+        },
+      ] : [],
     };
   },
   component: PostPage,
