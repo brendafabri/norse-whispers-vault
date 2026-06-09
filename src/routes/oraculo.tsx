@@ -92,7 +92,37 @@ function Oraculo() {
             🔮 SACAR UNA RUNA
           </button>
         </div>
+
+        {rune && (
+          <div className="max-w-2xl mx-auto mt-10 space-y-6 animate-fade-in">
+            <Link
+              to="/runas/$slug"
+              params={{ slug: rune.slug }}
+              className="block bg-card/40 border border-gold/30 hover:border-gold rounded-sm p-6 transition group"
+            >
+              <p className="font-display text-xs tracking-[0.4em] text-gold mb-2">PROFUNDIZA EN {rune.name.toUpperCase()}</p>
+              <p className="font-serif text-lg text-foreground/90 group-hover:text-gold transition">
+                Leer significado completo de {rune.name} →
+              </p>
+            </Link>
+
+            <div className="bg-forest/40 border border-border rounded-sm p-8 text-center">
+              <p className="font-serif text-lg text-foreground/90 mb-5 leading-relaxed">
+                ¿Quieres una lectura personalizada basada en tu momento actual?
+              </p>
+              <a
+                href="https://calendly.com/placeholder"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-gradient-to-r from-[oklch(0.72_0.10_75)] to-[oklch(0.55_0.08_70)] text-primary-foreground font-display tracking-[0.2em] text-sm px-10 py-4 rounded-sm hover:opacity-95 transition"
+              >
+                RESERVAR LECTURA
+              </a>
+            </div>
+          </div>
+        )}
       </section>
+
 
       {/* NÚMEROS ESPEJO */}
       <section className="py-24 bg-forest/30 border-y border-border/60">
