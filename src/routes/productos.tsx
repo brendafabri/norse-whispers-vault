@@ -8,16 +8,62 @@ import runesImg from "@/assets/runes.jpg";
 import forest from "@/assets/forest.jpg";
 
 export const Route = createFileRoute("/productos")({
-  head: () => ({
-    meta: [
-      { title: "Productos — Mystical Alchemy" },
-      { name: "description", content: "El Lenguaje de los Dioses, lecturas de runas y herramientas místicas forjadas con intención." },
-      { property: "og:title", content: "Productos — Mystical Alchemy" },
-      { property: "og:description", content: "Ofrendas para el buscador del Norte." },
-      { property: "og:url", content: "/productos" },
-    ],
-    links: [{ rel: "canonical", href: "/productos" }],
-  }),
+  head: () => {
+    const url = "https://norse-whispers-vault.lovable.app/productos";
+    const products = [
+      { name: "El Lenguaje de los Dioses", description: "Guía completa sobre runas, significados, bindrunes, rituales y magia nórdica.", price: "39.00" },
+      { name: "Lecturas de Runas", description: "Consultas personalizadas guiadas por las voces ancestrales del Norte.", price: "45.00" },
+      { name: "Herramientas Místicas", description: "Runas talladas, amuletos y objetos rituales forjados con intención.", price: "28.00" },
+    ];
+    return {
+      meta: [
+        { title: "Productos — Mystical Alchemy" },
+        { name: "description", content: "El Lenguaje de los Dioses, lecturas de runas y herramientas místicas forjadas con intención." },
+        { property: "og:title", content: "Productos — Mystical Alchemy" },
+        { property: "og:description", content: "Ofrendas para el buscador del Norte." },
+        { property: "og:url", content: url },
+        { name: "twitter:title", content: "Productos — Mystical Alchemy" },
+        { name: "twitter:description", content: "Ofrendas para el buscador del Norte." },
+      ],
+      links: [{ rel: "canonical", href: url }],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            itemListElement: products.map((p, i) => ({
+              "@type": "ListItem",
+              position: i + 1,
+              item: {
+                "@type": "Product",
+                name: p.name,
+                description: p.description,
+                brand: { "@type": "Brand", name: "Mystical Alchemy" },
+                offers: {
+                  "@type": "Offer",
+                  price: p.price,
+                  priceCurrency: "EUR",
+                  availability: "https://schema.org/InStock",
+                },
+              },
+            })),
+          }),
+        },
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Inicio", item: "https://norse-whispers-vault.lovable.app/" },
+              { "@type": "ListItem", position: 2, name: "Productos", item: url },
+            ],
+          }),
+        },
+      ],
+    };
+  },
   component: Productos,
 });
 
