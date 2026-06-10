@@ -128,7 +128,16 @@ function Productos() {
               <p className="font-display text-xs tracking-[0.4em] text-gold mb-4">PIEZA {String(i + 1).padStart(2, "0")}</p>
               <h2 className="font-display text-3xl md:text-4xl mb-6">{p.title}</h2>
               <p className="font-serif text-lg text-muted-foreground leading-relaxed mb-6">{p.desc}</p>
-              <p className="font-display text-2xl text-gold mb-8 tracking-wider">{p.price}</p>
+              <p className="font-display text-2xl text-gold tracking-wider">{p.price}</p>
+              {p.urgency && (
+                p.urgencyBadge ? (
+                  <span className="inline-block mt-2 mb-8 bg-gold/10 text-gold border border-gold/30 px-3 py-1 rounded-sm text-xs font-display tracking-wider">
+                    {p.urgency}
+                  </span>
+                ) : (
+                  <p className="font-serif text-sm text-gold/70 italic mt-2 mb-8">{p.urgency}</p>
+                )
+              )}
               <a
                 href={p.href}
                 target="_blank"
