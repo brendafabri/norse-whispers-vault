@@ -75,6 +75,8 @@ const items = [
     price: "39 €",
     cta: "VER EL LIBRO",
     href: "https://gumroad.com/l/placeholder-libro",
+    urgency: "Más de 200 buscadores ya tienen su copia",
+    urgencyBadge: false,
   },
   {
     title: "Lecturas de Runas",
@@ -83,6 +85,8 @@ const items = [
     price: "Desde 45 €",
     cta: "RESERVAR LECTURA",
     href: "https://calendly.com/placeholder",
+    urgency: "Solo 4 plazas disponibles este mes",
+    urgencyBadge: true,
   },
   {
     title: "Herramientas Místicas",
@@ -91,6 +95,8 @@ const items = [
     price: "Desde 28 €",
     cta: "EXPLORAR COLECCIÓN",
     href: "https://gumroad.com/placeholder-tienda",
+    urgency: "Cada pieza es única — sin reposición",
+    urgencyBadge: false,
   },
 ];
 
