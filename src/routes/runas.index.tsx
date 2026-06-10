@@ -56,11 +56,15 @@ function RunasIndex() {
               key={r.slug}
               to="/runas/$slug"
               params={{ slug: r.slug }}
-              className="group bg-card/60 border border-border hover:border-gold/60 p-6 rounded-sm text-center transition-all"
+              className="group bg-card/60 border border-border hover:border-gold/60 p-6 rounded-sm text-center transition-all flex flex-col"
             >
               <div className="text-5xl text-gold mb-3 group-hover:animate-flicker">{r.symbol}</div>
               <p className="font-display text-foreground group-hover:text-gold">{r.name}</p>
               <p className="font-serif text-xs text-muted-foreground mt-2 leading-relaxed">{r.meaning}</p>
+              <p className="font-serif text-sm text-muted-foreground/70 mt-3 leading-relaxed line-clamp-3 flex-1">{r.description}</p>
+              <span className="inline-block mt-4 text-[10px] tracking-[0.2em] uppercase border border-gold/30 text-gold/80 px-2.5 py-1 rounded-full font-display">
+                {r.aett}
+              </span>
             </Link>
           ))}
         </div>

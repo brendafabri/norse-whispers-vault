@@ -76,6 +76,17 @@ function PostPage() {
     <div className="min-h-screen flex flex-col">
       <SiteHeader />
       <article className="py-24 container mx-auto px-6 max-w-3xl">
+        <nav aria-label="breadcrumb" className="mb-6">
+          <ol className="flex flex-wrap items-center gap-2 text-xs font-display tracking-widest text-muted-foreground">
+            <li><Link to="/" className="hover:text-gold transition-colors">Inicio</Link></li>
+            <li aria-hidden="true" className="text-muted-foreground/50">&gt;</li>
+            <li><Link to="/biblioteca" className="hover:text-gold transition-colors">Biblioteca Arcana</Link></li>
+            <li aria-hidden="true" className="text-muted-foreground/50">&gt;</li>
+            <li><Link to="/biblioteca" className="hover:text-gold transition-colors">{post.category}</Link></li>
+            <li aria-hidden="true" className="text-muted-foreground/50">&gt;</li>
+            <li className="text-foreground max-w-[200px] truncate">{post.title}</li>
+          </ol>
+        </nav>
         <Link to="/biblioteca" className="text-xs font-display tracking-widest text-muted-foreground hover:text-gold">
           ← BIBLIOTECA
         </Link>
