@@ -8,9 +8,12 @@ import { RuneOfDay } from "@/components/RuneOfDay";
 import { Testimonials } from "@/components/Testimonials";
 import { POSTS } from "@/data/blog";
 import heroLibrary from "@/assets/hero-library.jpg";
-import runesImg from "@/assets/runes.jpg";
+import runesLecturasAsset from "@/assets/runes-lecturas.png.asset.json";
+import herramientasAsset from "@/assets/runes-reading.png.asset.json";
 import grimoire from "@/assets/grimoire.jpg";
-import forest from "@/assets/forest.jpg";
+
+const runesImg = runesLecturasAsset.url;
+const forest = herramientasAsset.url;
 
 export const Route = createFileRoute("/")({
   head: () => ({
