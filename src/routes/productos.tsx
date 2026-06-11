@@ -4,8 +4,10 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { Newsletter } from "@/components/Newsletter";
 import { Testimonials } from "@/components/Testimonials";
 import grimoire from "@/assets/grimoire.jpg";
-import runesImg from "@/assets/runes.jpg";
+import runesAsset from "@/assets/runes-reading.png.asset.json";
 import forest from "@/assets/forest.jpg";
+
+const runesImg = runesAsset.url;
 
 export const Route = createFileRoute("/productos")({
   head: () => {
