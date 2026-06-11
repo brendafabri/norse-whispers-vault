@@ -37,10 +37,11 @@ export function SubscribeForm({
   }
 
   if (status === "success") {
+    return (
       <p className="text-gold font-display tracking-widest text-sm">
-        ᚹ ¡BIENVENIDO AL CÍRCULO!
+        ᚹ ¡Bienvenido al círculo!
       </p>
-
+    );
   }
 
   const isPrimary = variant === "primary";
