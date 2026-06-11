@@ -84,7 +84,7 @@ const items = [
     img: runesImg,
     price: "Desde 45 €",
     cta: "RESERVAR LECTURA",
-    href: "https://calendly.com/placeholder",
+    href: "https://calendly.com/mystical-alchemy/lectura-de-runas",
     urgency: "Solo 4 plazas disponibles este mes",
     urgencyBadge: true,
   },
