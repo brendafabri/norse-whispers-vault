@@ -9,7 +9,7 @@ import { Testimonials } from "@/components/Testimonials";
 import { POSTS } from "@/data/blog";
 import heroLibrary from "@/assets/hero-library.jpg";
 import runesLecturasAsset from "@/assets/runes-lecturas.png.asset.json";
-import herramientasAsset from "@/assets/runes-reading.png.asset.json";
+import herramientasAsset from "@/assets/herramientas-misticas.png.asset.json";
 import grimoire from "@/assets/grimoire.jpg";
 
 const runesImg = runesLecturasAsset.url;

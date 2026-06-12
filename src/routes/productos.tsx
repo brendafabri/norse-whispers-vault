@@ -5,7 +5,7 @@ import { Newsletter } from "@/components/Newsletter";
 import { Testimonials } from "@/components/Testimonials";
 import grimoire from "@/assets/grimoire.jpg";
 import runesAsset from "@/assets/runes-lecturas.png.asset.json";
-import herramientasAsset from "@/assets/runes-reading.png.asset.json";
+import herramientasAsset from "@/assets/herramientas-misticas.png.asset.json";
 
 const runesImg = runesAsset.url;
 const forest = herramientasAsset.url;
