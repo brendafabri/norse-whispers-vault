@@ -11,6 +11,9 @@ import heroLibrary from "@/assets/hero-library.jpg";
 import runesLecturasAsset from "@/assets/runes-lecturas.png.asset.json";
 import herramientasAsset from "@/assets/herramientas-misticas.png.asset.json";
 import grimoire from "@/assets/grimoire.jpg";
+import grimorioRaizAsset from "@/assets/grimorio-raiz.jpg.asset.json";
+import cuarzosAsset from "@/assets/cuarzos-esenciales.jpg.asset.json";
+
 
 const runesImg = runesLecturasAsset.url;
 const forest = herramientasAsset.url;
