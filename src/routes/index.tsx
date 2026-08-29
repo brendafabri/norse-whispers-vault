@@ -186,16 +186,16 @@ function Home() {
             <p className="font-display text-xs tracking-[0.4em] text-gold-warm mb-3">BRUJERÍA BLANCA</p>
             <h2 className="font-display text-4xl md:text-5xl text-brown-dark">Colecciones</h2>
           </div>
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             <article className="group bg-card-light border border-card-light-border rounded-sm overflow-hidden shadow-sm hover:shadow-lg transition-all duration-500">
-              <div className="aspect-[4/3] overflow-hidden">
+              <div className="aspect-[3/4] p-6 overflow-hidden bg-card-light">
                 <img
                   src={grimorioRaizImg}
                   alt="El Grimorio de la Raíz"
                   loading="lazy"
                   width={1024}
                   height={1024}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700"
                 />
               </div>
               <div className="p-6">
@@ -216,7 +216,7 @@ function Home() {
               </div>
             </article>
 
-            <article className="group md:col-span-2 bg-card-light border-2 border-gold-warm/40 rounded-sm overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 relative">
+            <article className="group bg-card-light border-2 border-gold-warm/40 rounded-sm overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 relative">
               <span className="absolute top-4 right-4 bg-wine text-cream text-xs font-display tracking-wider px-3 py-1.5 rounded-sm z-10 flex items-center gap-1">
                 <span>✦</span>
                 <span>MÁS VENDIDO</span>
