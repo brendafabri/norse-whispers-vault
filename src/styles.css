@@ -33,6 +33,13 @@
   --color-gold-soft: var(--gold-soft);
   --color-parchment: var(--parchment);
   --color-forest: var(--forest);
+  --color-cream: var(--cream);
+  --color-brown-dark: var(--brown-dark);
+  --color-gold-warm: var(--gold-warm);
+  --color-wine: var(--wine);
+  --color-card-light: var(--card-light);
+  --color-card-light-border: var(--card-light-border);
+
 
   --font-display: "Cinzel", serif;
   --font-serif: "Cormorant Garamond", serif;
