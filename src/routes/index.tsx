@@ -172,7 +172,88 @@ function Home() {
         </div>
       </section>
 
+      {/* DIVIDER */}
+      <div className="flex items-center justify-center py-10 bg-background">
+        <div className="h-px flex-1 bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
+        <span className="mx-6 text-gold/60 text-2xl">☽</span>
+        <div className="h-px flex-1 bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
+      </div>
+
+      {/* COLECCIONES - BRUJERÍA BLANCA */}
+      <section className="py-24 bg-cream">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <p className="font-display text-xs tracking-[0.4em] text-gold-warm mb-3">BRUJERÍA BLANCA</p>
+            <h2 className="font-display text-4xl md:text-5xl text-brown-dark">Colecciones</h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <article className="group bg-card-light border border-card-light-border rounded-sm overflow-hidden shadow-sm hover:shadow-lg transition-all duration-500">
+              <div className="aspect-[4/3] overflow-hidden">
+                <img
+                  src={grimorioRaizImg}
+                  alt="El Grimorio de la Raíz"
+                  loading="lazy"
+                  width={1024}
+                  height={1024}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+              </div>
+              <div className="p-6">
+                <p className="font-display text-xs tracking-[0.3em] text-gold-warm mb-2">LIBRO DIGITAL PDF</p>
+                <h3 className="font-display text-xl text-brown-dark mb-3">El Grimorio de la Raíz</h3>
+                <p className="font-serif text-brown-dark/80 leading-relaxed mb-4">
+                  Fundamentos de la Bruja Blanca — elementos, hierbas, cristales, fases lunares y tus primeros hechizos, en un grimorio completo de 9 capítulos.
+                </p>
+                <div className="flex items-center justify-between pt-4 border-t border-card-light-border">
+                  <span className="text-gold-warm font-display tracking-wider">29 €</span>
+                  <a
+                    href="#"
+                    className="inline-block bg-wine text-cream font-display tracking-[0.15em] text-xs px-5 py-2.5 rounded-sm hover:bg-wine/90 transition"
+                  >
+                    OBTENER GRIMORIO
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article className="group md:col-span-2 bg-card-light border-2 border-gold-warm/40 rounded-sm overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 relative">
+              <span className="absolute top-4 right-4 bg-wine text-cream text-xs font-display tracking-wider px-3 py-1.5 rounded-sm z-10 flex items-center gap-1">
+                <span>✦</span>
+                <span>MÁS VENDIDO</span>
+              </span>
+              <div className="aspect-[4/3] overflow-hidden">
+                <img
+                  src={cuarzosImg}
+                  alt="Set de Cuarzos Esenciales"
+                  loading="lazy"
+                  width={1024}
+                  height={1024}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+              </div>
+              <div className="p-6">
+                <p className="font-display text-xs tracking-[0.3em] text-gold-warm mb-2">PRODUCTO FÍSICO</p>
+                <h3 className="font-display text-xl md:text-2xl text-brown-dark mb-3">Set de Cuarzos Esenciales</h3>
+                <p className="font-serif text-brown-dark/80 leading-relaxed mb-4">
+                  Cuarzo claro, amatista y cuarzo rosa. Tres piedras seleccionadas con intención para acompañar tu práctica desde el primer día.
+                </p>
+                <div className="flex items-center justify-between pt-4 border-t border-card-light-border">
+                  <span className="text-gold-warm font-display tracking-wider">Consultar precio</span>
+                  <a
+                    href="#"
+                    className="inline-block bg-wine text-cream font-display tracking-[0.15em] text-xs px-5 py-2.5 rounded-sm hover:bg-wine/90 transition"
+                  >
+                    CONSULTAR
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
       {/* BIBLIOTECA TEASER */}
+
       <section className="py-24 bg-forest/30 border-y border-border/60">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
