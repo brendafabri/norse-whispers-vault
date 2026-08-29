@@ -216,7 +216,7 @@ function Home() {
               </div>
             </article>
 
-            <article className="group md:col-span-2 bg-card-light border-2 border-gold-warm/40 rounded-sm overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 relative">
+            <article className="group bg-card-light border-2 border-gold-warm/40 rounded-sm overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 relative">
               <span className="absolute top-4 right-4 bg-wine text-cream text-xs font-display tracking-wider px-3 py-1.5 rounded-sm z-10 flex items-center gap-1">
                 <span>✦</span>
                 <span>MÁS VENDIDO</span>
