@@ -89,7 +89,15 @@
   --gold-soft: oklch(0.78 0.06 80);
   --parchment: oklch(0.91 0.04 85);
   --forest: oklch(0.22 0.018 160);
+
+  --cream: #F5EDD6;
+  --brown-dark: #2C1A0E;
+  --gold-warm: #9C6B1F;
+  --wine: #7A0F22;
+  --card-light: #FFFDF5;
+  --card-light-border: #E8DCC4;
 }
+
 
 .dark {
   /* Same as root — dark by default */
