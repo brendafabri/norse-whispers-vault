@@ -17,6 +17,9 @@ import cuarzosAsset from "@/assets/cuarzos-esenciales.jpg.asset.json";
 
 const runesImg = runesLecturasAsset.url;
 const forest = herramientasAsset.url;
+const grimorioRaizImg = grimorioRaizAsset.url;
+const cuarzosImg = cuarzosAsset.url;
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
