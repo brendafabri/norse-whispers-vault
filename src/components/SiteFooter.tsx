@@ -37,6 +37,7 @@ export function SiteFooter() {
             <li><Link to="/biblioteca" className="hover:text-gold">Biblioteca Arcana</Link></li>
             <li><Link to="/productos" className="hover:text-gold">Productos</Link></li>
             <li><Link to="/oraculo" className="hover:text-gold">Oráculo Diario</Link></li>
+            <li><Link to="/carta-astral" className="hover:text-gold">Carta Astral</Link></li>
             <li><Link to="/sobre" className="hover:text-gold">Sobre</Link></li>
           </ul>
         </div>

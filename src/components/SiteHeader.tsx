@@ -8,6 +8,7 @@ const nav = [
   { to: "/runas", label: "Runas" },
   { to: "/productos", label: "Productos" },
   { to: "/oraculo", label: "Oráculo" },
+  { to: "/carta-astral", label: "Carta Astral" },
   { to: "/sobre", label: "Sobre" },
 ];
 
@@ -22,7 +23,7 @@ export function SiteHeader() {
             MYSTICAL · ALCHEMY
           </span>
         </Link>
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-6">
           {nav.map((n) => (
             <Link
               key={n.to}
