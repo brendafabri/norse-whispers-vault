@@ -15,6 +15,7 @@ import { Route as ProductosRouteImport } from './routes/productos'
 import { Route as PrivacidadRouteImport } from './routes/privacidad'
 import { Route as OraculoRouteImport } from './routes/oraculo'
 import { Route as LegalRouteImport } from './routes/legal'
+import { Route as CartaAstralRouteImport } from './routes/carta-astral'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as RunasIndexRouteImport } from './routes/runas.index'
 import { Route as BibliotecaIndexRouteImport } from './routes/biblioteca.index'
@@ -51,6 +52,11 @@ const LegalRoute = LegalRouteImport.update({
   path: '/legal',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CartaAstralRoute = CartaAstralRouteImport.update({
+  id: '/carta-astral',
+  path: '/carta-astral',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -79,6 +85,7 @@ const BibliotecaSlugRoute = BibliotecaSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/carta-astral': typeof CartaAstralRoute
   '/legal': typeof LegalRoute
   '/oraculo': typeof OraculoRoute
   '/privacidad': typeof PrivacidadRoute
@@ -92,6 +99,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/carta-astral': typeof CartaAstralRoute
   '/legal': typeof LegalRoute
   '/oraculo': typeof OraculoRoute
   '/privacidad': typeof PrivacidadRoute
@@ -106,6 +114,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/carta-astral': typeof CartaAstralRoute
   '/legal': typeof LegalRoute
   '/oraculo': typeof OraculoRoute
   '/privacidad': typeof PrivacidadRoute
@@ -121,6 +130,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/carta-astral'
     | '/legal'
     | '/oraculo'
     | '/privacidad'
@@ -134,6 +144,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/carta-astral'
     | '/legal'
     | '/oraculo'
     | '/privacidad'
@@ -147,6 +158,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/carta-astral'
     | '/legal'
     | '/oraculo'
     | '/privacidad'
@@ -161,6 +173,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CartaAstralRoute: typeof CartaAstralRoute
   LegalRoute: typeof LegalRoute
   OraculoRoute: typeof OraculoRoute
   PrivacidadRoute: typeof PrivacidadRoute
@@ -217,6 +230,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LegalRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/carta-astral': {
+      id: '/carta-astral'
+      path: '/carta-astral'
+      fullPath: '/carta-astral'
+      preLoaderRoute: typeof CartaAstralRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -257,6 +277,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CartaAstralRoute: CartaAstralRoute,
   LegalRoute: LegalRoute,
   OraculoRoute: OraculoRoute,
   PrivacidadRoute: PrivacidadRoute,
