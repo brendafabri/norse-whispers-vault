@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from "react";
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { format } from "date-fns";
 import { es } from "date-fns/locale";
 import {
@@ -103,9 +103,14 @@ function CartaAstralPage() {
   const [birthTime, setBirthTime] = useState("");
   const [city, setCity] = useState("");
   const [country, setCountry] = useState("");
+  const [dateError, setDateError] = useState(false);
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (!birthDate) {
+      setDateError(true);
+      return;
+    }
     setView("teaser");
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
@@ -117,6 +122,7 @@ function CartaAstralPage() {
     setUnknownTime(false);
     setCity("");
     setCountry("");
+    setDateError(false);
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
@@ -127,7 +133,11 @@ function CartaAstralPage() {
         {view === "form" && (
           <BirthForm
             birthDate={birthDate}
-            setBirthDate={setBirthDate}
+            setBirthDate={(date) => {
+              setBirthDate(date);
+              if (date) setDateError(false);
+            }}
+            dateError={dateError}
             birthTime={birthTime}
             setBirthTime={setBirthTime}
             unknownTime={unknownTime}
@@ -161,6 +171,7 @@ function CartaAstralPage() {
 interface BirthFormProps {
   birthDate: Date | undefined;
   setBirthDate: (date: Date | undefined) => void;
+  dateError: boolean;
   birthTime: string;
   setBirthTime: (time: string) => void;
   unknownTime: boolean;
@@ -213,6 +224,8 @@ function BirthForm(props: BirthFormProps) {
                     <Button
                       id="birth-date"
                       type="button"
+                      aria-invalid={props.dateError}
+                      aria-describedby={props.dateError ? "birth-date-error" : undefined}
                       variant="outline"
                       className={cn(
                         "h-12 w-full justify-start border-border bg-input/50 px-4 text-left font-serif text-base",
@@ -237,7 +250,7 @@ function BirthForm(props: BirthFormProps) {
                     />
                   </PopoverContent>
                 </Popover>
-                {!props.birthDate && <input className="sr-only" required aria-label="Fecha de nacimiento requerida" value="" onChange={() => undefined} />}
+                {props.dateError && <p id="birth-date-error" role="alert" className="font-serif text-sm text-destructive">Selecciona tu fecha de nacimiento.</p>}
               </div>
 
               <div className="space-y-3">
